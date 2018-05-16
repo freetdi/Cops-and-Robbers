@@ -1,5 +1,8 @@
 ''' written by Lukas Larisch (2014)
-    e-mail: lukas.larisch@kaust.edu.sa '''
+    e-mail: lukas.larisch@kaust.edu.sa \
+    version 1.0
+
+'''
 
 from PyQt4 import QtGui, QtCore
 import sys

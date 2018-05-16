@@ -1,6 +1,20 @@
+APPETIZER
+
+Create your own graph, play the Cops and Robbers game on it and compute a winning strategy for your graph.
+
+DESCRIPTION
+
+This is an implementation of the Cops and Robbers game on graphs.
+
+The Cops and Robbers game is a game for two players: A group of k cops, that you control, have to catch a single, always visible, robber on a graph. Player 'Cops' controls 'k' cops and player 'R' (the computer which moves arbitrarily on valid vertices) controls the robber. Both players move on vertices of the graph. 'Cops' chooses a set 'X' of at most 'k' vertices. In each turn, some cops fly to new vertices which the robber knows about; he tries to escape even during their flight on a path that is not occupied by cops (that currently do no fly). The goal of 'Cops' is to set a cop on the vertex that is currently occupied by 'Robber' while he cannot escape. The goal of the robber is to escape forever. 
+
+A winning strategy for 'k' cops on a graph is equivalent to a treedecomposition of width 'k'. The minimum number of cops required to have a winning strategy is equal to the treewidth of that graph minus 1.
+
+INSTALLATION/EXECUTION
+
 Execute 'python CR.py' in this folder to run the game (needs python-qt4)
 
-To compute a winning strategy for your graph, the installation of 
+To compute a winning strategy for your graph the installation of 
 
 tdlib (https://github.com/freetdi/tdlib)
 
