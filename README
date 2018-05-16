@@ -1,0 +1,11 @@
+Execute 'python CR.py' in this folder to run the game (needs python-qt4)
+
+To compute a winning strategy for your graph, the installation of 
+
+tdlib (https://github.com/freetdi/tdlib)
+
+and
+
+pydot
+
+is required.
