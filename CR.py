@@ -10,6 +10,7 @@ import pickle
 import Graph
 import copy
 import SetOp
+import signal
 from random import randint
 from math import sqrt
 
@@ -806,24 +807,18 @@ class CopsAndRobbers(QtGui.QMainWindow):
 
             V_T = list()
             E_T = list()
-            #try:
-            import tdlib
-            print(str(self.Current.G.vertices()))
-            print(str(self.Current.G.edges()))
-            T, w = tdlib.exact_decomposition_cutset(self.Current.G)
-            V_T = T.vertices()
-            E_T = T.edges()
-            print(str(V_T))
-            print(str(E_T))
-            """
+            try:
+                import tdlib
+                T, w = tdlib.exact_decomposition_cutset(self.Current.G)
+                V_T = T.vertices()
+                E_T = T.edges()
             except:
                 self.loading_errors.append("unable to load pytdlib, install pytdlib (>=0.8) (included in the tarball of tdlib)")
-                self.loading_errors.append("    -> ./configure --with-python=python2.7 (or 3.0)")
+                self.loading_errors.append("    -> ./configure")
                 self.loading_errors.append("    -> make install")
                 self.onActivatedReset()
                 self.repaint()
                 return
-            """
             try:
                 import pydot
                 graph = pydot.Dot(graph_type='graph')
@@ -895,7 +890,8 @@ class CopsAndRobbers(QtGui.QMainWindow):
             QtGui.QMessageBox.about(self, "Saving graph", "Done!")
             fout.close()
         return True
-        
+
+signal.signal(signal.SIGINT, signal.SIG_DFL)
 app = QtGui.QApplication(sys.argv) 
 main = CopsAndRobbers() 
 mainColor = QtGui.QPalette()
